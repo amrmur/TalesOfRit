@@ -20,14 +20,14 @@ public class NPC_guitarist extends Entity{
         setDialogue();
     }
     public void getNPCImage() {
-        up1 = setup("npc/guitarist_up_1");
-        up2 = setup("npc/guitarist_up_2");
-        down1 = setup("npc/guitarist_down_1");
-        down2 = setup("npc/guitarist_down_2");
-        left1 = setup("npc/guitarist_left_1");
-        left2 = setup("npc/guitarist_left_2");
-        right1 = setup("npc/guitarist_right_1");
-        right2 = setup("npc/guitarist_right_2");
+        up1 = setup("npc/guitarist/guitarist_up_1",gp.tileSize,gp.tileSize);
+        up2 = setup("npc/guitarist/guitarist_up_2",gp.tileSize,gp.tileSize);
+        down1 = setup("npc/guitarist/guitarist_down_1",gp.tileSize,gp.tileSize);
+        down2 = setup("npc/guitarist/guitarist_down_2",gp.tileSize,gp.tileSize);
+        left1 = setup("npc/guitarist/guitarist_left_1",gp.tileSize,gp.tileSize);
+        left2 = setup("npc/guitarist/guitarist_left_2",gp.tileSize,gp.tileSize);
+        right1 = setup("npc/guitarist/guitarist_right_1",gp.tileSize,gp.tileSize);
+        right2 = setup("npc/guitarist/guitarist_right_2",gp.tileSize,gp.tileSize);
     }
     public void setDefaultValues() {
         speed = 1;
@@ -40,6 +40,7 @@ public class NPC_guitarist extends Entity{
         dialogues[3] = "I got this leather jacket on \none of my guitar tours. I \nstopped doing tours since I \ncame to Strumstone though.";
         dialogues[2] = "If you want to speak with the \nTrader, he lives in the woods \non the left side of the island.";
         dialogues[5] = "If you lose your health, \nthere's a healing pool on the \nearthy right side of the \nisland.";
+        dialogues[6] = "If you drink the healing \nwater, monsters will get \nenraged and respawn in the \nisland.";
     }
     public void setAction(){
         actionLockCounter++;

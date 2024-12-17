@@ -32,16 +32,6 @@ public class EventHandler {
     }
 
     public void checkEvent(){
-        if(hit(57,80,"any")){
-            healingPool(gp.dialogueState);
-        }
-        if(hit(44,36,"any")){
-            teleport(gp.dialogueState, (int) (69.5*gp.tileSize),54*gp.tileSize);
-        }
-    }
-    // key dependent events (you have to click a certain key for it to be activated)
-    public void checkKeyDepEvent(){
-
         int xDistance = Math.abs(gp.player.worldX - previousEventX);
         int yDistance = Math.abs(gp.player.worldY - previousEventY);
         int distance = Math.max(xDistance, yDistance);
@@ -59,9 +49,15 @@ public class EventHandler {
             if(hit(44,45,"any")){
                 damagePit(gp.dialogueState,44,45);
             }
+            if(hit(57,80,"any")){
+                healingPool(gp.dialogueState);
+            }
+            if(hit(44,36,"any")){
+                teleport(gp.dialogueState, (int) (69.5*gp.tileSize),54*gp.tileSize);
+            }
         }
-        
     }
+
     public boolean hit(int row, int col, String reqDirection){
         boolean hit = false;
         gp.player.solidArea.x = gp.player.worldX + gp.player.solidArea.x;
@@ -99,9 +95,11 @@ public class EventHandler {
     public void healingPool(int gameState){
         if(gp.keyH.enterPressed == true){
             gp.gameState = gameState;
+            gp.player.attackCanceled = true;
             if(gp.player.life != gp.player.maxLife) {
-                gp.ui.currentDialogue = "You drank the healing water. \nYou gained some life back.";
-                gp.player.life++;
+                gp.ui.currentDialogue = "You drank the healing water \nand gained your health back.\nYou hear the echoes of \nmonsters.";
+                gp.player.life=gp.player.maxLife;
+                gp.aSetter.setMonster();
             } else {
                 gp.ui.currentDialogue = "Your life is full. No need for \nthe healing water.";
             }

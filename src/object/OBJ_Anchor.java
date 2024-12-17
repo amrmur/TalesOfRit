@@ -8,6 +8,6 @@ public class OBJ_Anchor extends Entity{
         super(gp);
 
         name = "Anchor";
-        down1 = setup("/objects/Anchor");
+        down1 = setup("/objects/Anchor",gp.tileSize,gp.tileSize);
     }
 }

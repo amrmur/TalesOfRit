@@ -57,6 +57,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int playState = 1;
     public final int pauseState = 2;
     public final int dialogueState = 3;
+    public final int characterState = 4;
 
     public GamePanel() { // constructor
         playSE(2);
@@ -126,7 +127,12 @@ public class GamePanel extends JPanel implements Runnable{
 
             for(int i = 0; i < monster.length; i++) {
                 if(monster[i] != null) {
-                    monster[i].update();
+                    if(monster[i].alive && !monster[i].dying){
+                        monster[i].update();
+                    }
+                    if(!monster[i].alive){
+                        monster[i] = null;
+                    }
                 }
             }
         }
@@ -181,10 +187,7 @@ public class GamePanel extends JPanel implements Runnable{
                 entityList.get(i).draw(g2);
             }
             // EMPTY ENTITY LIST
-            for(int i = 0; i < entityList.size();i++){
-                entityList.remove(i);
-            }
-
+            entityList.clear();
 
             ui.draw(g2); // UI
         }

@@ -19,13 +19,23 @@ public class AssetSetter {
         gp.npc[0].moveWidth = 5 * gp.tileSize;
     }
     public void setMonster(){
-        gp.monster[0] = new MON_Ghost(gp);
-        gp.monster[0].worldX = gp.tileSize * 67;
-        gp.monster[0].worldY = gp.tileSize * 63;  
-        
-        gp.monster[1] = new MON_Ghost(gp);
-        gp.monster[1].worldX = gp.tileSize * 69;
-        gp.monster[1].worldY = gp.tileSize * 65;  
+        int i = 0;
+        gp.monster[i] = new MON_Ghost(gp);
+        gp.monster[i].worldX = gp.tileSize * 67;
+        gp.monster[i].worldY = gp.tileSize * 63;  
+        i++;
+        gp.monster[i] = new MON_Ghost(gp);
+        gp.monster[i].worldX = gp.tileSize * 69;
+        gp.monster[i].worldY = gp.tileSize * 65;  
+        i++;
+        gp.monster[i] = new MON_Ghost(gp);
+        gp.monster[i].worldX = gp.tileSize * 77;
+        gp.monster[i].worldY = gp.tileSize * 36;  
+        i++;
+        gp.monster[i] = new MON_Ghost(gp);
+        gp.monster[i].worldX = gp.tileSize * 79;
+        gp.monster[i].worldY = gp.tileSize * 38;   
+        i++; 
     }
 
 }
